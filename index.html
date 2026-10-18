@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#251044">
+  <title>Happy Birthday, Thiya! 💖</title>
+  <style>
+    :root {
+      --pink: #ff5ca8;
+      --gold: #ffd166;
+      --lavender: #c7a5ff;
+      --ink: #fff7fc;
+    }
+    * { box-sizing: border-box; }
+    html { min-height: 100%; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: 24px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse at 15% 15%, rgba(255,92,168,.42), transparent 34%),
+        radial-gradient(ellipse at 90% 22%, rgba(140,92,255,.42), transparent 33%),
+        radial-gradient(ellipse at 50% 100%, rgba(255,209,102,.18), transparent 38%),
+        linear-gradient(145deg, #180b31 0%, #32134f 48%, #15153f 100%);
+      overflow-x: hidden;
+    }
+    .stars, .stars::before, .stars::after {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      content: "";
+      background-image:
+        radial-gradient(2px 2px at 20% 30%, #fff 45%, transparent 60%),
+        radial-gradient(2px 2px at 75% 15%, #ffd166 45%, transparent 60%),
+        radial-gradient(1.5px 1.5px at 86% 70%, #fff 45%, transparent 60%),
+        radial-gradient(2px 2px at 12% 78%, #ffb7d8 45%, transparent 60%),
+        radial-gradient(1.5px 1.5px at 60% 90%, #fff 45%, transparent 60%);
+      opacity: .6;
+      animation: shimmer 5s ease-in-out infinite alternate;
+    }
+    .stars::before { transform: translate(35px, 25px); opacity: .45; animation-delay: -2s; }
+    .stars::after { transform: translate(-20px, -15px); opacity: .35; animation-delay: -4s; }
+    .card {
+      width: min(100%, 460px);
+      padding: 30px 23px 26px;
+      text-align: center;
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      border-radius: 30px;
+      border: 1px solid rgba(255,255,255,.3);
+      background: linear-gradient(155deg, rgba(255,255,255,.16), rgba(255,255,255,.07));
+      box-shadow: 0 22px 70px rgba(0,0,0,.32), inset 0 1px 0 rgba(255,255,255,.22);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      animation: rise .9s ease-out both;
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(130deg, var(--gold), var(--pink), var(--lavender), var(--gold));
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      z-index: -1;
+    }
+    .content { position: relative; z-index: 1; }
+    .badge {
+      display: inline-block;
+      padding: 7px 13px;
+      margin-bottom: 15px;
+      border: 1px solid rgba(255,255,255,.28);
+      border-radius: 999px;
+      background: rgba(255,255,255,.1);
+      color: #ffe4f2;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .cake {
+      font-size: 55px;
+      line-height: 1.2;
+      margin-bottom: 8px;
+      filter: drop-shadow(0 5px 15px rgba(255,92,168,.32));
+      animation: float 3s ease-in-out infinite;
+    }
+    h1 {
+      margin: 0 0 16px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(31px, 8vw, 40px);
+      line-height: 1.12;
+      letter-spacing: -.6px;
+      background: linear-gradient(95deg, #fff5bc, #ffacd3 48%, #d7c2ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 5px 28px rgba(255,92,168,.12);
+    }
+    .divider {
+      width: 86px;
+      height: 3px;
+      margin: 0 auto 22px;
+      border-radius: 99px;
+      background: linear-gradient(90deg, var(--gold), var(--pink), var(--lavender));
+      box-shadow: 0 0 16px rgba(255,92,168,.45);
+    }
+    p {
+      margin: 0 0 16px;
+      color: #fff3fb;
+      font-size: 15.5px;
+      line-height: 1.78;
+    }
+    .highlight {
+      margin: 20px 0;
+      padding: 17px 15px;
+      border-radius: 19px;
+      border: 1px solid rgba(255,209,102,.32);
+      background: linear-gradient(135deg, rgba(255,92,168,.16), rgba(140,92,255,.19));
+      color: #fff2c8;
+      font-weight: 650;
+      line-height: 1.75;
+    }
+    .sister-note {
+      color: #ffd6e9;
+      font-weight: 700;
+    }
+    .signature {
+      margin-top: 20px;
+      color: #ffd166;
+      font-weight: 800;
+      font-size: 16px;
+    }
+    .hearts { margin-top: 15px; font-size: 21px; letter-spacing: 7px; }
+    .footer { margin-top: 18px; color: #d6c1e8; font-size: 11px; letter-spacing: .4px; }
+    .sparkle { display: inline-block; animation: twinkle 1.8s ease-in-out infinite alternate; }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(18px) scale(.985); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+    @keyframes twinkle { from { transform: scale(.94) rotate(-5deg); } to { transform: scale(1.1) rotate(5deg); } }
+    @keyframes shimmer { from { opacity: .3; } to { opacity: .75; } }
+    @media (max-width: 360px) {
+      body { padding: 16px 10px; }
+      .card { padding: 25px 17px 22px; border-radius: 24px; }
+      p { font-size: 14.5px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="stars" aria-hidden="true"></div>
+  <main class="card">
+    <div class="content">
+      <div class="cake" aria-hidden="true">🎂 <span class="sparkle">💖</span></div>
+      <div class="badge">A special wish just for you</div>
+      <h1>Happy Birthday,<br>Thiya!</h1>
+      <div class="divider"></div>
+
+      <p>May all your tears disappear like clouds, and may your life be filled with endless smiles and happiness from this birthday onwards. 🌸✨</p>
+
+      <p>You have done a lot for me, and I'll always be grateful to you. ❤️ You have done a lot for me, and I'll always be grateful to you. ❤️</p>
+
+      <div class="highlight">
+        May all your dreams come true, all your worries fade away, and may God bless you with a long, healthy, peaceful, and beautiful life. 🧿🙏🏻
+      </div>
+
+      <p>May you live a long, beautiful life, stay blessed, and never lose your lovely smile. May life always be kind to you and bring you all the happiness your heart deserves. 🦋</p>
+
+      <div class="signature">Happy Birthday, Thangachi! 🫶🏻❤️</div>
+      <div class="hearts" aria-hidden="true">♡ ♥ ♡</div>
+      <div class="footer">Made with love &amp; warm wishes ✨</div>
+    </div>
+  </main>
+</body>
+</html>
